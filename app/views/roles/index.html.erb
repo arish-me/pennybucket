@@ -1,0 +1,27 @@
+<% content_for :user_management_tab do %>
+  <%= render 'layouts/user_management_tab' %>
+<% end %>
+<%= render partial: "shared/common/container", locals: {
+      destroy_path: bulk_destroy_roles_path,
+      resource_path: roles_path,
+      resource_id: 'roles-search',
+      search_placeholder: 'Search roles by name',
+      title: 'Roles',
+      resource: @roles,
+      record: Role,
+      new_resource_path: new_role_path,
+      columns: [
+                  { header: "Name", attribute: :name },
+                  { header: "Created At", attribute: :created_at },
+                  { header: "Updated At", attribute: :updated_at }
+                ],
+      actions: [
+                  {
+                    url: ->(record) { edit_role_path(record) },
+                    icon: "square-pen",
+                    turbo_frame: :modal
+                  }
+                ],
+
+    }
+  %>

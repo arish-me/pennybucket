@@ -1,0 +1,22 @@
+<% content_for :user_management_tab do %>
+  <%= render 'layouts/user_management_tab' %>
+<% end %>
+
+<div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-1">
+  <% @roles.each do |role| %>
+    <div class="card shadow rounded-md p-4 border border-gray-200 bg-white">
+      <h2 class="text-lg font-semibold mb-2"><%= role.name %></h2>
+      <p class="text-sm text-gray-500">Role ID: <%= role.id %></p>
+
+      <div class="mt-4">
+        <%= link_to edit_role_permission_path(role),
+            data: { turbo_frame: :modal },
+            class: "dark:text-white hover:underline" do %>
+            Manage Permissions
+        <% end %>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+

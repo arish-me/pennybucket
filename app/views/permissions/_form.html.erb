@@ -1,0 +1,13 @@
+<%= styled_form_with model: @permission, class: "space-y-4" do |f| %>
+  <% if permission.errors.any? %>
+    <%= render "shared/form_errors" , model: permission %>
+  <% end %>
+  <section class="space-y-2 overflow-hidden">
+    <%= f.text_field :name, label: 'Name' , placeholder: 'Enter Name' %>
+    <%= f.text_field :resource, label: 'Resource' , placeholder: 'Enter Resource Name' %>
+  </section>
+  <section>
+    <%= f.submit 'Submit' %>
+  </section>
+<% end %>
+

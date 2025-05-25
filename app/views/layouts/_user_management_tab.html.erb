@@ -1,0 +1,25 @@
+<%= render(TabComponent.new(
+  tabs: [
+    {
+      label: "Users",
+      path: admin_users_path,
+      id: "users-tab"
+    },
+    {
+      label: "Roles",
+      path: roles_path,
+      id: "roles-tab"
+    },
+    {
+      label: "Permissions",
+      path: permissions_path,
+      id: "permission-tab"
+    },
+    {
+      label: "Manage Permissions",
+      path: role_permissions_path,
+      id: "roles-tab"
+    },
+  ],
+  current_path: request.path
+)) %>

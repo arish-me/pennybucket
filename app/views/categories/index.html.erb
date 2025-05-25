@@ -1,0 +1,25 @@
+<% content_for :title, "Categories" %>
+
+<%= render partial: "shared/common/container", locals: {
+      destroy_path: bulk_destroy_categories_path,
+      resource_path: categories_path,
+      resource_id: 'categories-search',
+      search_placeholder: 'Search categories by name',
+      title: 'Categories',
+      record: Category,
+      resource: @categories,
+      new_resource_path: new_category_path,
+      columns: [
+                  { header: "Name", attribute: :name },
+                  { header: "Created At", attribute: :created_at },
+                  { header: "Updated At", attribute: :updated_at }
+                ],
+      actions: [
+                  {
+                    url: ->(record) { edit_category_path(record) },
+                    icon: "square-pen",
+                    turbo_frame: :modal
+                  }
+                ]
+    }
+  %>
