@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  before_action :configure_sign_up_params, only: [:create]
-  before_action :configure_account_update_params, only: [:update]
+  before_action :configure_sign_up_params, only: [ :create ]
+  before_action :configure_account_update_params, only: [ :update ]
 
   # POST /resource
   def create
@@ -16,7 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [
       :email, :password, :password_confirmation,
-      profile_attributes: [:first_name, :last_name, :gender, :location]
+      profile_attributes: [ :first_name, :last_name, :gender, :location ]
     ])
   end
 
@@ -25,10 +25,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:account_update, keys: [
       :email, :password, :password_confirmation, :current_password,
       profile_attributes: [
-        :id, :first_name, :middle_name, :last_name, :gender, :bio, 
+        :id, :first_name, :middle_name, :last_name, :gender, :bio,
         :phone_number, :date_of_birth, :location, :website, :social_links,
         :theme_preference, :timezone, :country_code, :postal_code
       ]
     ])
   end
-end 
+end

@@ -8,13 +8,13 @@ module ProfilesHelper
   end
 
   def flag_emoji_for(country_code)
-    return '' if country_code.blank?
+    return "" if country_code.blank?
 
     # Convert country code to uppercase
     country_code = country_code.upcase
 
     # Country code should be 2 characters
-    return '' if country_code.length != 2
+    return "" if country_code.length != 2
 
     # Convert country code characters to regional indicator symbols
     # Each letter is converted to an emoji regional indicator symbol (A-Z)
@@ -26,7 +26,7 @@ module ProfilesHelper
     # Common timezone options with their standard names
     timezones = ActiveSupport::TimeZone.all.map do |tz|
       offset_display = tz.now.strftime("%:z")
-      ["(#{offset_display}) #{tz.name.gsub('_', ' ')}", tz.name]
+      [ "(#{offset_display}) #{tz.name.gsub('_', ' ')}", tz.name ]
     end
 
     # Sort by offset
@@ -38,25 +38,25 @@ module ProfilesHelper
     ISO3166::Country.all.map do |country|
       flag = flag_emoji_for(country.alpha2)
       name_with_flag = "#{flag} #{country.iso_short_name}"
-      [name_with_flag, country.alpha2]
+      [ name_with_flag, country.alpha2 ]
     end.sort_by { |name, _| name.downcase }
   end
 
   def detect_timezone_from_ip(ip_address)
-    return 'UTC' if ip_address.blank?
+    return "UTC" if ip_address.blank?
 
     begin
       # Try to get timezone from IP using geocoder
       result = Geocoder.search(ip_address).first
-      if result && result.data['timezone'].present?
-        return result.data['timezone']
+      if result && result.data["timezone"].present?
+        return result.data["timezone"]
       end
     rescue => e
       Rails.logger.error "Error detecting timezone from IP: #{e.message}"
     end
 
     # Default to UTC if detection fails
-    'UTC'
+    "UTC"
   end
 
   def detect_country_from_ip(ip_address)

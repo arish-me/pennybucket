@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Locale switching route
-  post 'set_locale', to: 'application#set_locale', as: :set_locale
+  post "set_locale", to: "application#set_locale", as: :set_locale
 
   # ActiveStorage direct uploads
   # post '/rails/active_storage/direct_uploads', to: 'active_storage/direct_uploads#create', as: :rails_direct_uploads
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get "account", to: "settings#edit_account", as: "edit_account"
   end
 
-  devise_for :users, controllers: { 
+  devise_for :users, controllers: {
     omniauth_callbacks: "users/omniauth_callbacks",
     registrations: "users/registrations"
   }
