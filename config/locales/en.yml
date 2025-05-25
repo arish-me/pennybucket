@@ -29,14 +29,14 @@
 
 en:
   common:
-    app_name: "Rails Wheel"
+    app_name: "Penny Bucket"
     change_language: "Change language"
     toggle_theme: "Toggle between light and dark theme"
     get_started: "Get Started"
     learn_more: "Learn More"
     home: "Home"
     about: "About"
-    services: "Services" 
+    services: "Services"
     contact: "Contact"
     sign_in: "Sign in"
     sign_up: "Sign up"
@@ -52,7 +52,7 @@ en:
     profile: "Profile"
     account: "Account"
     preferences: "Preferences"
-  
+
   pages:
     home:
       title: "The Ultimate Rails Framework for Modern Applications"
@@ -73,7 +73,7 @@ en:
       cta_heading: "Ready to Build Your Next Application?"
       cta_subheading: "Start with a solid foundation and focus on what makes your application unique."
       get_started_now: "Get Started Now"
-      
+
   auth:
     sign_in_to_account: "Sign in to your account"
     email: "Email"
@@ -81,14 +81,14 @@ en:
     remember_me: "Remember me"
     forgot_password: "Forgot your password?"
     unlock_instructions: "Didn't receive unlock instructions?"
-    
+
   settings:
     profile: "Profile"
     account: "Account"
     appearance: "Appearance"
     notifications: "Notifications"
     save_changes: "Save Changes"
-    
+
   errors:
     not_authorized: "You are not authorized to perform this action."
     page_not_found: "Page not found."

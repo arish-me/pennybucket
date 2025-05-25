@@ -1,6 +1,12 @@
 module ApplicationHelper
   include Pagy::Frontend
 
+
+  def styled_form_with(**options, &block)
+    options[:builder] = StyledFormBuilder
+    form_with(**options, &block)
+  end
+
   # Return a human-readable name for the given locale
   def locale_name(locale)
     case locale.to_sym
